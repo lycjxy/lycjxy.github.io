@@ -1,483 +1,459 @@
-body, html {
-  padding-top:2.5em;
-  margin:0;
-  background-color:#fafafa;
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+<head>
+  <style>
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
 }
 
-/* Header */
-
-header {
-  width:100%;
-  vertical-align: middle;
-  text-align: center;
- 
+body {
+  background: #585c68;
+  font-size: 14px;
+  line-height: 22px;
+  color: #555555;
 }
 
-.header-content {
-  display: inline-block;
+.bold {
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
-.pic {
-  margin: 0 auto;
-  margin-top:-2.5em;
-  
-  border-radius:10em;
-  height:4em;
-  width:4em;
-  background-image: url(https://pbs.twimg.com/profile_images/529377948952834048/q9fhJEKd.jpeg);
-  background-size: 100% auto;
-  
-  border: 2px solid #e0e0e0;
-  transition : all 0.5s linear;
-  
+.semi-bold {
+  font-weight: 500;
+  font-size: 16px;
 }
 
-@-webkit-keyframes wiggle {
-  0%   {
-    transform: rotate(0deg);
-  }
-  25%  {
-    transform: rotate(-30deg);
-  }
-  50%  {
-    transform: rotate(15deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+.resume {
+  width: 800px;
+  height: auto;
+  display: flex;
+  margin: 50px auto;
 }
 
-.pic:hover {
-  /*Webkit fix*/
-  -webkit-transform: translateZ(0);
-  
-  cursor:pointer;
-  
-  -webkit-animation: wiggle 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+.resume .resume_left {
+  width: 280px;
+  background: #0bb5f4;
 }
 
-.header-text {
-  margin-top:0.5em;
-  margin-left:1em;
+.resume .resume_left .resume_profile {
+  width: 100%;
+  height: 280px;
 }
 
-header p {
-  text-align:center;
-  font-family: "Merriweather";
-  
-  margin:0;
-  
-  color: #212121;
+.resume .resume_left .resume_profile img {
+  width: 100%;
+  height: 100%;
 }
 
-.first-name {
-   font-size: 1.05em;
+.resume .resume_left .resume_content {
+  padding: 0 25px;
 }
 
-.subtitle {
-  font-family: "Merriweather";
-  padding-top:.3em;
-  font-size:0.55em;
-  font-weight:500;
-  color: #424242;
+.resume .title {
+  margin-bottom: 20px;
 }
 
-/* Information */
-
-.paper {
-  margin: 0 auto;
-  margin-bottom:1em;
-  
-  background-color:white;
-  width:60%;
-  
-  padding:0.5em 0 0.5em 0;
-  
-  border-top: 1px solid #e0e0e0;
-  border-left: 1px solid #e0e0e0;
-  border-right: 1px solid #e0e0e0;
-  border-bottom: 3px solid #e0e0e0;
-  border-radius:3px;
+.resume .resume_left .bold {
+  color: #fff;
 }
 
-/* Content Part */
-
-.content-wrapper {
-  padding-right:7.25%;
+.resume .resume_left .regular {
+  color: #b1eaff;
 }
 
-.content {
-  display:table;
-  width:100%;
-  
-  padding-top:1.5em;
-  
-  /*border-top: 1px solid #eeeeee;*/
+.resume .resume_item {
+  padding: 25px 0;
+  border-bottom: 2px solid #b1eaff;
 }
 
-.content:last-child {
-  padding-bottom:1.5em;
+.resume .resume_left .resume_item:last-child,
+.resume .resume_right .resume_item:last-child {
+  border-bottom: 0px;
 }
 
-.row {
-    display:table-row;
-}
-.row div {
-    display:table-cell;
-}
-
-.content-cat {
-  font-family: "Merriweather";
-  font-variant:small-caps;
-  font-weight:300;
-  letter-spacing: 1px;
-  
-  color: #212121;
-  
-  font-size:0.975em;
-  
-  text-align:center;
-  vertical-align:middle;
-
-  padding-left:6.66%;
-  width:36.66%;
+.resume .resume_left ul li {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
 }
 
-.content-cat p {
-  font-size:0.55em;
-  font-weight:600;
-  
-  margin-bottom:0;
+.resume .resume_left ul li:last-child {
+  margin-bottom: 0;
 }
 
-.content-text {
-  border-left:1px solid #e0e0e0;
-  transition: border 0.66s ease-in;
+.resume .resume_left ul li .icon {
+  width: 35px;
+  height: 35px;
+  background: #fff;
+  color: #0bb5f4;
+  border-radius: 50%;
+  margin-right: 15px;
+  font-size: 16px;
+  position: relative;
 }
 
-.content-text:hover {
-  border-left:1px solid #bdbdbd;
+.resume .icon i,
+.resume .resume_right .resume_hobby ul li i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.big-text {
-  vertical-align:top;
-  
-  padding-top:1.25em;
+.resume .resume_left ul li .data {
+  color: #b1eaff;
 }
 
-.content-text ul {
-  padding:0;
-  margin:0;
-  margin-top:0.15em;
-  
-  width:85%;
-  margin-left:1.5em;
+.resume .resume_left .resume_skills ul li {
+  display: flex;
+  margin-bottom: 10px;
+  color: #b1eaff;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.content-text ul:last-child {
-  margin-bottom:0.5em;
+.resume .resume_left .resume_skills ul li .skill_name {
+  width: 25%;
 }
 
-.content-text ul li {
-  font-family: "Open Sans";
-  font-size:0.7em;
-  
-  display:inline-block;
-  
+.resume .resume_left .resume_skills ul li .skill_progress {
+  width: 60%;
+  margin: 0 5px;
+  height: 5px;
+  background: #009fd9;
+  position: relative;
 }
 
-.content-text ul li:first-child {
-  width:35%;
-  
-  color: #424242;
-  
-  font-weight:600;
-  font-size:0.75;
+.resume .resume_left .resume_skills ul li .skill_per {
+  width: 15%;
 }
 
-.content-text ul li a {
-  text-decoration: none;
-  color: #0277bd;
+.resume .resume_left .resume_skills ul li .skill_progress span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #fff;
 }
 
-.content-text ul li a:hover {
-  color:#4fc3f7;
+.resume .resume_left .resume_social .semi-bold {
+  color: #fff;
+  margin-bottom: 3px;
 }
 
-.work-listing p {
-  font-family: "Open Sans";
-  font-size:0.7em;
-  font-weight:400;
-  
-  line-height:1.5;
-  
-  color: #424242;
-  
-  margin-left:2em;
-  margin-top:0.25em;
-  margin-bottom:0.75em;
+.resume .resume_right {
+  width: 520px;
+  background: #fff;
+  padding: 25px;
 }
 
-.work-listing .highlight, .content-text.skills-listing > ul > li > .highlight {
-  font-family: "Open Sans";
-  font-size:0.7em;
-  font-weight:400;
-  
-  color: #424242;
-  
-  margin-left:3.25em;
-  padding-left:0.5em;
-  
-  border-left:1px solid #e0e0e0;
-  
+.resume .resume_right .bold {
+  color: #0bb5f4;
 }
 
-.education-listing > .heading {
-  font-weight:600;
-  
-  margin-top:0.75em;
-  margin-left:2em;
+.resume .resume_right .resume_work ul,
+.resume .resume_right .resume_education ul {
+  padding-left: 40px;
+  overflow: hidden;
 }
 
-.education-listing > .highlight {
-  margin-left:3.25em;
+.resume .resume_right ul li {
+  position: relative;
 }
 
-.content-text.skills-listing > ul {
-  display:table-row;
+.resume .resume_right ul li .date {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
 }
 
-.content-text.skills-listing > ul:last-child {
-  margin-bottom:0;
+.resume .resume_right ul li .info {
+  margin-bottom: 20px;
 }
 
-.content-text.skills-listing > ul > li {
-  display:table-cell;
-  vertical-align:top;
-  
-  padding-left:2em;
-  
-  width:50%;
-  font-weight:600;
+.resume .resume_right ul li:last-child .info {
+  margin-bottom: 0;
 }
 
-.content-text.skills-listing > ul > li span {
-  font-weight:400;
-  color: #616161;
+.resume .resume_right .resume_work ul li:before,
+.resume .resume_right .resume_education ul li:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -25px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 2px solid #0bb5f4;
 }
 
-.content-text.skills-listing > ul > li > .highlight {
-  
-  font-size:1em;
-  font-weight:400;
-  
-  margin-left:1.25em;
+.resume .resume_right .resume_work ul li:after,
+.resume .resume_right .resume_education ul li:after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: -21px;
+  width: 2px;
+  height: 115px;
+  background: #0bb5f4;
 }
 
-.highlight {
-  transition: border .33s ease-in;
+.resume .resume_right .resume_hobby ul {
+  display: flex;
+  justify-content: space-between;
 }
 
-.highlight:hover, .content-text.skills-listing > ul > li > .highlight:hover {
-  border-left:1px solid #9e9e9e;
+.resume .resume_right .resume_hobby ul li {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #0bb5f4;
+  border-radius: 50%;
+  position: relative;
+  color: #0bb5f4;
+}
+
+.resume .resume_right .resume_hobby ul li i {
+  font-size: 30px;
+}
+
+.resume .resume_right .resume_hobby ul li:before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  right: -52px;
+  width: 50px;
+  height: 2px;
+  background: #0bb5f4;
+}
+
+.resume .resume_right .resume_hobby ul li:last-child:before {
+  display: none;
 }
 
 
 
 
 
-
-
-<div class="resume-wrapper">
-  <article class="paper">
-    <header>
-      <div class="header-content">
-        <div class="header-pic" title="Wiggle Wiggle">
-          <div class="pic"></div>
-        </div>
-        <div class="header-text">
-          <p>
-            <span class="first-name">Tim</span>
-            Daubenschütz
-          </p>
-          <p class="subtitle">Bachelor of Science (almost)</p>
-        </div>
-      </div>
-    </header>
     
-    <div class="content-wrapper">
-    
-      <!-- CONTACT -->
-      <section class="content">
-        <div class="row">
-          <div class="content-cat">
-           Contact
-          </div>
-          <div class="content-text">
-            <ul>
-              <li>Website</li>
-              <li>daubenschuetz.de</li>
-            </ul>
-            <ul>
-              <li>Email</li>
-              <li>tim.daubenschuetz@gmail.com</li>
-            </ul>
-            <ul>
-              <li>Phone</li>
-              <li>+49 123 456 78</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+    </style>
+</head>
 
-      <!-- LOCATION -->
-      <section class="content">
-        <div class="row">
-          <div class="content-cat">
-           Location
-          </div>
-          <div class="content-text">
-            <ul>
-              <li>Address</li>
-              <li>Some street</li>
-            </ul>
-            <ul>
-              <li>Postal Code</li>
-              <li>12345</li>
-            </ul>
-            <ul>
-              <li>City</li>
-              <li>Ulm</li>
-            </ul>
-            <ul>
-              <li>Region</li>
-              <li>Baden-Württemberg</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROFILES -->
-      <section class="content">
-        <div class="row">
-          <div class="content-cat">
-           Profiles
-          </div>
-          <div class="content-text">
-            <ul>
-              <li>Twitter</li>
-              <li>
-                <a href="https://twitter.com/TimDaub" target="_blank">@TimDaub</a>
-              </li>
-            </ul>
-            <ul>
-              <li>Codepen</li>
-              <li>
-                <a href="https://codepen.io/TimDaub/" target="_blank">@TimDaub</a>
-              </li>
-            </ul>
-            <ul>
-              <li>Github</li>
-              <li>
-                <a href="https://github.com/TimDaub" target="_blank">@TimDaub</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="content">
-        <div class="row">
-          <div class="content-cat big-text">
-           Self-employed
-            <p>2012-05-01 till today</p>
-          </div>
-          <div class="content-text work-listing">
-            <p>Hondrt.de is a small business enterprise (dt. Kleingewerbe) specializing in serving technical needs of local customers. For example building corporate homepages, technical consulting and programming.</p>
-            <p class="highlight">Implemented and marketed Timedoublr.com, a flexible time tracking app for Apple iOS</p>
-             <p class="highlight">Consulted a medium-sized business in establishing their media presence</p>
-          </div>
-        </div>
-      </section>
-      <section class="content">
-        <div class="row">
-          <div class="content-cat big-text">
-           Ulm University
-            <p>2013-09-01 till today</p>
-          </div>
-          <div class="content-text work-listing">
-            <p>Development of Module Management System (MMS), a content management system for studycourse module handbooks introduced as part of the Bologna Process. Feature requirements included: versioning of every resource, a complex editorial process, visual representation of high level data structures (e.g. trees) and a flexible, RESTful API.</p>
-            <p class="highlight">Won the Software Construction (dt. Softwaregrundprojekt) class challenge for best usability and got employed by university</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="content">
-        <div class="row">
-          <div class="content-cat">
-            Education
-            <p>2011-10-01 till</p>
-            <p style="margin-top:0.25em;">2015-02-14</p>
-          </div>
-          <div class="content-text work-listing education-listing">
-            <p class="heading">Ulm University</p>
-            <p class="highlight">Media Informatics (Bachelor of Science)</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="content">
-        <div class="row">
-          <div class="content-cat big-text">
-            Awards
-            <p>Best Usability</p>
-            <p style="margin-top:0.25em;">2013-07-13</p>
-          </div>
-          <div class="content-text work-listing education-listing">
-            <p class="heading">Faculty of Engineering and Computer Science at Ulm University:</p>
-            <p class="highlight">For developing Module Management System (MMS) a content management system for module handbooks introduced as part of the Bologna Process.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="content">
-        <div class="row">
-          <div class="content-cat big-text">
-            Skills
-          </div>
-          <div class="content-text skills-listing">
-            <ul>
-              <li>
-                Web
-                <span>(Master)</span>
-                <p class="highlight">Node.js</p>
-                <p class="highlight">Angular.js</p>
-              </li>
-              <li>
-                Mobile
-                <span>(Advanced)</span>
-                <p class="highlight">Cocoa</p>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                Languages 
-                <span>(Master)</span>
-                <p class="highlight">Javascript</p>
-              </li>
-              <li>
-                Software
-                <span>(Advanced)</span>
-                <p class="highlight">Adobe Photoshop</p>
-                <p class="highlight">Adobe InDesign</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    
+<div class="resume">
+   <div class="resume_left">
+     <div class="resume_profile">
+       <img src="https://i.imgur.com/eCijVBe.png" alt="profile_pic">
+     </div>
+     <div class="resume_content">
+       <div class="resume_item resume_info">
+         <div class="title">
+           <p class="bold">stephen colbert</p>
+           <p class="regular">Designer</p>
+         </div>
+         <ul>
+           <li>
+             <div class="icon">
+               <i class="fas fa-map-signs"></i>
+             </div>
+             <div class="data">
+               21 Street, Texas <br /> USA
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fas fa-mobile-alt"></i>
+             </div>
+             <div class="data">
+               +324 4445678
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fas fa-envelope"></i>
+             </div>
+             <div class="data">
+               stephen@gmail.com
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fab fa-weebly"></i>
+             </div>
+             <div class="data">
+               www.stephen.com
+             </div>
+           </li>
+         </ul>
+       </div>
+       <div class="resume_item resume_skills">
+         <div class="title">
+           <p class="bold">skill's</p>
+         </div>
+         <ul>
+           <li>
+             <div class="skill_name">
+               HTML
+             </div>
+             <div class="skill_progress">
+               <span style="width: 80%;"></span>
+             </div>
+             <div class="skill_per">80%</div>
+           </li>
+           <li>
+             <div class="skill_name">
+               CSS
+             </div>
+             <div class="skill_progress">
+               <span style="width: 70%;"></span>
+             </div>
+             <div class="skill_per">70%</div>
+           </li>
+           <li>
+             <div class="skill_name">
+               SASS
+             </div>
+             <div class="skill_progress">
+               <span style="width: 90%;"></span>
+             </div>
+             <div class="skill_per">90%</div>
+           </li>
+           <li>
+             <div class="skill_name">
+               JS
+             </div>
+             <div class="skill_progress">
+               <span style="width: 60%;"></span>
+             </div>
+             <div class="skill_per">60%</div>
+           </li>
+           <li>
+             <div class="skill_name">
+               JQUERY
+             </div>
+             <div class="skill_progress">
+               <span style="width: 88%;"></span>
+             </div>
+             <div class="skill_per">88%</div>
+           </li>
+         </ul>
+       </div>
+       <div class="resume_item resume_social">
+         <div class="title">
+           <p class="bold">Social</p>
+         </div>
+         <ul>
+           <li>
+             <div class="icon">
+               <i class="fab fa-facebook-square"></i>
+             </div>
+             <div class="data">
+               <p class="semi-bold">Facebook</p>
+               <p>Stephen@facebook</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fab fa-twitter-square"></i>
+             </div>
+             <div class="data">
+               <p class="semi-bold">Twitter</p>
+               <p>Stephen@twitter</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fab fa-youtube"></i>
+             </div>
+             <div class="data">
+               <p class="semi-bold">Youtube</p>
+               <p>Stephen@youtube</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fab fa-linkedin"></i>
+             </div>
+             <div class="data">
+               <p class="semi-bold">Linkedin</p>
+               <p>Stephen@linkedin</p>
+             </div>
+           </li>
+         </ul>
+       </div>
+     </div>
+  </div>
+  <div class="resume_right">
+    <div class="resume_item resume_about">
+        <div class="title">
+           <p class="bold">About us</p>
+         </div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis illo fugit officiis distinctio culpa officia totam atque exercitationem inventore repudiandae?</p>
     </div>
-      
-  </article>
-  
+    <div class="resume_item resume_work">
+        <div class="title">
+           <p class="bold">Work Experience</p>
+         </div>
+        <ul>
+            <li>
+                <div class="date">2013 - 2015</div> 
+                <div class="info">
+                     <p class="semi-bold">Lorem ipsum dolor sit amet.</p> 
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                </div>
+            </li>
+            <li>
+              <div class="date">2015 - 2017</div>
+              <div class="info">
+                     <p class="semi-bold">Lorem ipsum dolor sit amet.</p> 
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                </div>
+            </li>
+            <li>
+              <div class="date">2017 - Present</div>
+              <div class="info">
+                     <p class="semi-bold">Lorem ipsum dolor sit amet.</p> 
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="resume_item resume_education">
+      <div class="title">
+           <p class="bold">Education</p>
+         </div>
+      <ul>
+            <li>
+                <div class="date">2010 - 2013</div> 
+                <div class="info">
+                     <p class="semi-bold">Web Designing (Texas University)</p> 
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                </div>
+            </li>
+            <li>
+              <div class="date">2000 - 2010</div>
+              <div class="info">
+                     <p class="semi-bold">Texas International School</p> 
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="resume_item resume_hobby">
+      <div class="title">
+           <p class="bold">Hobby</p>
+         </div>
+       <ul>
+         <li><i class="fas fa-book"></i></li>
+         <li><i class="fas fa-gamepad"></i></li>
+         <li><i class="fas fa-music"></i></li>
+         <li><i class="fab fa-pagelines"></i></li>
+      </ul>
+    </div>
+  </div>
 </div>
