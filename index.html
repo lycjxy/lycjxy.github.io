@@ -279,12 +279,27 @@
 
         languageToggle.addEventListener('click', () => {
             if (isChinese) {
-                chineseElements.forEach(element => element.style.display = 'none');
-                englishElements.forEach(element => element.style.display = 'block');
+                chineseElements.forEach(element => {
+                    element.style.display = 'none';
+                });
+                englishElements.forEach(element => {
+                    element.style.display = 'block';
+                    // 对于链接和图片等特殊元素，确保显示正常
+                    if (element.tagName === 'IMG') {
+                        element.style.display = 'inline-block';
+                    }
+                });
                 languageToggle.textContent = '切换到中文';
             } else {
-                chineseElements.forEach(element => element.style.display = 'block');
-                englishElements.forEach(element => element.style.display = 'none');
+                chineseElements.forEach(element => {
+                    element.style.display = 'block';
+                    if (element.tagName === 'IMG') {
+                        element.style.display = 'inline-block';
+                    }
+                });
+                englishElements.forEach(element => {
+                    element.style.display = 'none';
+                });
                 languageToggle.textContent = '切换到英文';
             }
             isChinese = !isChinese;
