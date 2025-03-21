@@ -271,27 +271,19 @@
         <p lang="en">Copyright &copy; 2025 YICHAO LIU</p>
     </footer>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const lang = urlParams.get('lang');
         const languageToggle = document.getElementById('language-toggle');
         const chineseElements = document.querySelectorAll('[lang="zh-CN"]');
         const englishElements = document.querySelectorAll('[lang="en"]');
 
-        if (lang === 'en') {
-            chineseElements.forEach(element => element.style.display = 'none');
-            englishElements.forEach(element => element.style.display = 'block');
-            languageToggle.textContent = '切换到中文';
-        } else {
-            chineseElements.forEach(element => element.style.display = 'block');
-            englishElements.forEach(element => element.style.display = 'none');
-            languageToggle.textContent = '切换到英文';
-        }
-
         languageToggle.addEventListener('click', () => {
-            if (lang === 'en') {
-                window.location.href = window.location.pathname;
+            if (languageToggle.textContent === '切换到英文') {
+                chineseElements.forEach(element => element.style.display = 'none');
+                englishElements.forEach(element => element.style.display = 'block');
+                languageToggle.textContent = '切换到中文';
             } else {
-                window.location.href = window.location.pathname + '?lang=en';
+                chineseElements.forEach(element => element.style.display = 'block');
+                englishElements.forEach(element => element.style.display = 'none');
+                languageToggle.textContent = '切换到英文';
             }
         });
     </script>
