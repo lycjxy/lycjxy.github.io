@@ -27,18 +27,6 @@
             position: relative;
         }
 
-        /* 语言切换链接样式 */
-        #language-switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
         header h1 {
             font-size: 3em;
             margin-bottom: 10px;
@@ -56,17 +44,29 @@
             margin-bottom: 20px;
         }
 
-        section {
-            padding: 20px;
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
             margin: 20px auto;
-            max-width: 700px;
+            gap: 20px;
+        }
+
+        .project-block {
+            display: flex;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 20px;
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
-        section:hover {
+        .column:hover {
             transform: translateY(-5px);
         }
 
@@ -74,25 +74,25 @@
             color: #667eea;
             font-size: 2em;
             margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
         }
 
         .project {
             margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
             padding-bottom: 20px;
-        }
-
-        .project:last-child {
-            border-bottom: none;
         }
 
         .project h3 {
             font-size: 1.5em;
             margin-bottom: 10px;
+            color: #555;
         }
 
         .project p {
-            line-height: 1.6;
+            line-height: 1.8;
+            font-size: 1em;
+            color: #777;
         }
 
         .project a {
@@ -124,6 +124,9 @@
 
         ul li {
             margin-bottom: 10px;
+            line-height: 1.8;
+            font-size: 1em;
+            color: #777;
         }
 
         ul li a {
@@ -136,226 +139,195 @@
             color: #764ba2;
         }
 
-        /* 根据锚点显示或隐藏内容 */
-        #chinese-content:target {
-            display: block;
-        }
-
-        #english-content:target {
-            display: block;
-        }
-
-        #chinese-content {
-            display: block;
-        }
-
-        #english-content {
-            display: none;
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .project-block {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 
 <body>
     <header>
-        <!-- 语言切换锚点链接 -->
-        <a id="language-switch" href="#chinese-content">显示中文</a>
-        <a id="language-switch" href="#english-content">显示英文</a>
         <img id="profile-picture" src="my.jpg" alt="个人照片">
-        <!-- 中文内容 -->
-        <div id="chinese-content">
-            <h1>YICHAO LIU</h1>
-            <p>个人简介</p>
-        </div>
-        <!-- 英文内容 -->
-        <div id="english-content">
-            <h1>YICHAO LIU</h1>
-            <p>Personal Introduction</p>
-        </div>
+        <h1>YICHAO LIU</h1>
+        <p>个人简介 | Personal Introduction</p>
     </header>
-    <section id="education">
-        <!-- 中文内容 -->
-        <div id="chinese-content">
-            <h2>教育背景</h2>
-            <div class="project">
-                <h3>南加州大学 (USC)</h3>
-                <p>计算机工程理学硕士，GPA 3.4/4.0（2022 年 1 月 - 2024 年 5 月）</p>
+    <div class="content-container">
+        <!-- 教育背景板块 -->
+        <div class="project-block">
+            <div class="column chinese-column">
+                <h2>教育背景</h2>
+                <div class="project">
+                    <h3>南加州大学 (USC)</h3>
+                    <p>计算机工程理学硕士，GPA 3.4/4.0（2022 年 1 月 - 2024 年 5 月）</p>
+                </div>
+                <div class="project">
+                    <h3>江西农业大学 (JXAU)</h3>
+                    <p>软件工程学士，GPA 3.6/4.0（2017 年 9 月 - 2021 年 7 月）</p>
+                </div>
             </div>
-            <div class="project">
-                <h3>江西农业大学 (JXAU)</h3>
-                <p>软件工程学士，GPA 3.6/4.0（2017 年 9 月 - 2021 年 7 月）</p>
+            <div class="column english-column">
+                <h2>Education Background</h2>
+                <div class="project">
+                    <h3>University of Southern California (USC)</h3>
+                    <p>Master of Science in Computer Engineering, GPA 3.4/4.0 (January 2022 - May 2024)</p>
+                </div>
+                <div class="project">
+                    <h3>Jiangxi Agricultural University (JXAU)</h3>
+                    <p> Bachelor of Software Engineering, GPA 3.6/4.0 (September 2017 - July 2021)</p>
+                </div>
             </div>
         </div>
-        <!-- 英文内容 -->
-        <div id="english-content">
-            <h2>Education Background</h2>
-            <div class="project">
-                <h3>University of Southern California (USC)</h3>
-                <p>Master of Science in Computer Engineering, GPA 3.4/4.0 (January 2022 - May 2024)</p>
-            </div>
-            <div class="project">
-                <h3>Jiangxi Agricultural University (JXAU)</h3>
-                <p> Bachelor of Software Engineering, GPA 3.6/4.0 (September 2017 - July 2021)</p>
-            </div>
-        </div>
-    </section>
-    <section id="skills">
-        <!-- 中文内容 -->
-        <div id="chinese-content">
-            <h2>技能</h2>
-            <ul>
-                <li>编程语言: JAVA（高级）、C++（中级）、Python（中级）、JavaScript（中级）</li>
-                <li>框架: Springboot、Redis、Mybatis</li>
-                <li>其他: Linux（Ubuntu）、SQL、NOSQL、MATLAB</li>
-            </ul>
-        </div>
-        <!-- 英文内容 -->
-        <div id="english-content">
-            <h2>Skills</h2>
-            <ul>
-                <li>Programming Languages: JAVA (Advanced), C++ (Intermediate), Python (Intermediate), JavaScript (Intermediate)</li>
-                <li>Frameworks: Springboot, Redis, Mybatis</li>
-                <li>Others: Linux (Ubuntu), SQL, NOSQL, MATLAB</li>
-            </ul>
-        </div>
-    </section>
-    <section id="work-experience">
-        <!-- 中文内容 -->
-        <div id="chinese-content">
-            <h2>工作经历</h2>
-            <div class="project">
-                <h3>南京英业达电器有限公司</h3>
-                <p>研发部实习生（2020 年 1 月 - 2020 年 2 月），中国南京</p>
+        <!-- 技能板块 -->
+        <div class="project-block">
+            <div class="column chinese-column">
+                <h2>技能</h2>
                 <ul>
-                    <li>参与开发、运营工作，与客户进行谈判</li>
-                    <li>负责部分产品文档处理和翻译工作</li>
+                    <li>编程语言: JAVA（高级）、C++（中级）、Python（中级）、JavaScript（中级）</li>
+                    <li>框架: Springboot、Redis、Mybatis</li>
+                    <li>其他: Linux（Ubuntu）、SQL、NOSQL、MATLAB</li>
+                </ul>
+            </div>
+            <div class="column english-column">
+                <h2>Skills</h2>
+                <ul>
+                    <li>Programming Languages: JAVA (Advanced), C++ (Intermediate), Python (Intermediate), JavaScript (Intermediate)</li>
+                    <li>Frameworks: Springboot, Redis, Mybatis</li>
+                    <li>Others: Linux (Ubuntu), SQL, NOSQL, MATLAB</li>
                 </ul>
             </div>
         </div>
-        <!-- 英文内容 -->
-        <div id="english-content">
-            <h2>Work Experience</h2>
-            <div class="project">
-                <h3>Nanjing Inventec Appliances Corp</h3>
-                <p>Intern in the Research and Development Department (January 2020 - February 2020), Nanjing, China</p>
+        <!-- 工作经历板块 -->
+        <div class="project-block">
+            <div class="column chinese-column">
+                <h2>工作经历</h2>
+                <div class="project">
+                    <h3>南京英业达电器有限公司</h3>
+                    <p>研发部实习生（2020 年 1 月 - 2020 年 2 月），中国南京</p>
+                    <ul>
+                        <li>参与开发、运营工作，与客户进行谈判</li>
+                        <li>负责部分产品文档处理和翻译工作</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column english-column">
+                <h2>Work Experience</h2>
+                <div class="project">
+                    <h3>Nanjing Inventec Appliances Corp</h3>
+                    <p>Intern in the Research and Development Department (January 2020 - February 2020), Nanjing, China</p>
+                    <ul>
+                        <li>Involved in development, operations, and negotiations with clients</li>
+                        <li>Responsible for document processing and translation of some product descriptions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 项目经验板块 -->
+        <div class="project-block">
+            <div class="column chinese-column">
+                <h2>项目经验</h2>
+                <div class="project">
+                    <h3>AES 加速</h3>
+                    <p>C++、CUDA、OpenMP（2023 年 11 月）</p>
+                    <ul>
+                        <li>用 C++、CUDA 和 OpenMP 实现 AES 加密算法，通过并行处理显著提升加密性能</li>
+                        <li>对比串行和并行执行进行性能分析，展示并行处理的效率提升</li>
+                        <li>开发用户友好的批量加密界面，方便非技术用户加密大量文档</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <h3>C++ 套接字编程简单注册系统</h3>
+                    <p>TCP/UDP、Linux（2022 年 10 月）</p>
+                    <ul>
+                        <li>为南加州大学构建简化的网络注册系统，方便学生获取各系课程信息</li>
+                        <li>采用 TCP/UDP 协议实现客户端与服务器高效通信，确保数据可靠传输和认证</li>
+                        <li>注重用户友好的客户端界面和强大的服务器端验证，提高系统可靠性和可用性</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <h3>大学二手交易信息管理系统</h3>
+                    <p>Java、Spring Boot、MyBatis、MySQL、Maven、Thymeleaf（2021 年 3 月）</p>
+                    <ul>
+                        <li>主导设计和开发大学社区内二手商品交易的网络平台</li>
+                        <li>实现高级搜索和筛选功能，提升用户查找商品的体验</li>
+                        <li>与用户合作收集反馈，实现用户评分和商品评论等新功能</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <h3>超市订单管理系统</h3>
+                    <p>Java、JSP、Servlets、MySQL（2019 年 3 月）</p>
+                    <ul>
+                        <li>开发并部署基于网络的订单管理系统，简化超市运营</li>
+                        <li>自动化供应商管理流程，实现动态订单下达和库存更新</li>
+                        <li>生成销售和供应商绩效详细报告，辅助战略决策</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column english-column">
+                <h2>Project Experience</h2>
+                <div class="project">
+                    <h3>AES Acceleration</h3>
+                    <p>C++, CUDA, OpenMP (November 2023)</p>
+                    <ul>
+                        <li>Implemented the AES encryption algorithm in C++ with CUDA and OpenMP, achieving significant improvements in encryption performance through parallel processing.</li>
+                        <li>Conducted performance analysis comparing serial and parallel execution, demonstrating efficiency gains in parallel processing.</li>
+                        <li>Developed a user-friendly interface for batch encryption tasks, facilitating encryption of massive documents by non-technical users.</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <h3>Simple Registration System with Socket Programming in C++</h3>
+                    <p>TCP/UDP, Linux (October 2022)</p>
+                    <ul>
+                        <li>Constructed a simplified web registration system for USC, facilitating student access to course information across departments.</li>
+                        <li>Employed TCP/UDP protocols for efficient communication between client and servers, ensuring reliable data transmission and authentication.</li>
+                        <li>Focused on a user-friendly client interface and robust server-side validation to enhance overall system reliability and usability.</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <h3>University Second-hand Trade Information Management System</h3>
+                    <p>Java, Spring Boot, MyBatis, MySQL, Maven, Thymeleaf (March 2021)</p>
+                    <ul>
+                        <li>Led the design and development of a web-based platform for trading second-hand goods within the university community.</li>
+                        <li>Implemented advanced search and filtering capabilities to improve user experience in finding products.</li>
+                        <li>Collaborated with users to gather feedback, resulting in the implementation of new features such as user ratings and product reviews.</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <h3>Supermarket Order Management System</h3>
+                    <p>Java, JSP, Servlets, MySQL (March 2019)</p>
+                    <ul>
+                        <li>Developed and deployed a web-based order management system to streamline supermarket operations.</li>
+                        <li>Automated the supplier management process, enabling dynamic order placement and inventory updates.</li>
+                        <li>Generated detailed reports on sales and supplier performance, aiding in strategic decision-making.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 联系方式板块 -->
+        <div class="project-block">
+            <div class="column chinese-column">
+                <h2>联系方式</h2>
                 <ul>
-                    <li>Involved in development, operations, and negotiations with clients</li>
-                    <li>Responsible for document processing and translation of some product descriptions</li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/yichao-liu-usc/">https://www.linkedin.com/in/yichao-liu-usc/</a></li>
+                    <li>电话:15879258098</li>
+                    <li>邮箱: <a href="mailto:liuyicha@usc.edu">15879258098@163.com</a></li>
+                </ul>
+            </div>
+            <div class="column english-column">
+                <h2>Contact Information</h2>
+                <ul>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/yichao-liu-usc/">https://www.linkedin.com/in/yichao-liu-usc/</a></li>
+                    <li>Phone: xxx - xxx - xxx</li>
+                    <li>Email: <a href="mailto:liuyicha@usc.edu">lycjxy@gmail.com</a></li>
                 </ul>
             </div>
         </div>
-    </section>
-    <section id="project-experience">
-        <!-- 中文内容 -->
-        <div id="chinese-content">
-            <h2>项目经验</h2>
-            <div class="project">
-                <h3>AES 加速</h3>
-                <p>C++、CUDA、OpenMP（2023 年 11 月）</p>
-                <ul>
-                    <li>用 C++、CUDA 和 OpenMP 实现 AES 加密算法，通过并行处理显著提升加密性能</li>
-                    <li>对比串行和并行执行进行性能分析，展示并行处理的效率提升</li>
-                    <li>开发用户友好的批量加密界面，方便非技术用户加密大量文档</li>
-                </ul>
-            </div>
-            <div class="project">
-                <h3>C++ 套接字编程简单注册系统</h3>
-                <p>TCP/UDP、Linux（2022 年 10 月）</p>
-                <ul>
-                    <li>为南加州大学构建简化的网络注册系统，方便学生获取各系课程信息</li>
-                    <li>采用 TCP/UDP 协议实现客户端与服务器高效通信，确保数据可靠传输和认证</li>
-                    <li>注重用户友好的客户端界面和强大的服务器端验证，提高系统可靠性和可用性</li>
-                </ul>
-            </div>
-            <div class="project">
-                <h3>大学二手交易信息管理系统</h3>
-                <p>Java、Spring Boot、MyBatis、MySQL、Maven、Thymeleaf（2021 年 3 月）</p>
-                <ul>
-                    <li>主导设计和开发大学社区内二手商品交易的网络平台</li>
-                    <li>实现高级搜索和筛选功能，提升用户查找商品的体验</li>
-                    <li>与用户合作收集反馈，实现用户评分和商品评论等新功能</li>
-                </ul>
-            </div>
-            <div class="project">
-                <h3>超市订单管理系统</h3>
-                <p>Java、JSP、Servlets、MySQL（2019 年 3 月）</p>
-                <ul>
-                    <li>开发并部署基于网络的订单管理系统，简化超市运营</li>
-                    <li>自动化供应商管理流程，实现动态订单下达和库存更新</li>
-                    <li>生成销售和供应商绩效详细报告，辅助战略决策</li>
-                </ul>
-            </div>
-        </div>
-        <!-- 英文内容 -->
-        <div id="english-content">
-            <h2>Project Experience</h2>
-            <div class="project">
-                <h3>AES Acceleration</h3>
-                <p>C++, CUDA, OpenMP (November 2023)</p>
-                <ul>
-                    <li>Implemented the AES encryption algorithm in C++ with CUDA and OpenMP, achieving significant improvements in encryption performance through parallel processing.</li>
-                    <li>Conducted performance analysis comparing serial and parallel execution, demonstrating efficiency gains in parallel processing.</li>
-                    <li>Developed a user-friendly interface for batch encryption tasks, facilitating encryption of massive documents by non-technical users.</li>
-                </ul>
-            </div>
-            <div class="project">
-                <h3>Simple Registration System with Socket Programming in C++</h3>
-                <p>TCP/UDP, Linux (October 2022)</p>
-                <ul>
-                    <li>Constructed a simplified web registration system for USC, facilitating student access to course information across departments.</li>
-                    <li>Employed TCP/UDP protocols for efficient communication between client and servers, ensuring reliable data transmission and authentication.</li>
-                    <li>Focused on a user-friendly client interface and robust server-side validation to enhance overall system reliability and usability.</li>
-                </ul>
-            </div>
-            <div class="project">
-                <h3>University Second-hand Trade Information Management System</h3>
-                <p>Java, Spring Boot, MyBatis, MySQL, Maven, Thymeleaf (March 2021)</p>
-                <ul>
-                    <li>Led the design and development of a web-based platform for trading second-hand goods within the university community.</li>
-                    <li>Implemented advanced search and filtering capabilities to improve user experience in finding products.</li>
-                    <li>Collaborated with users to gather feedback, resulting in the implementation of new features such as user ratings and product reviews.</li>
-                </ul>
-            </div>
-            <div class="project">
-                <h3>Supermarket Order Management System</h3>
-                <p>Java, JSP, Servlets, MySQL (March 2019)</p>
-                <ul>
-                    <li>Developed and deployed a web-based order management system to streamline supermarket operations.</li>
-                    <li>Automated the supplier management process, enabling dynamic order placement and inventory updates.</li>
-                    <li>Generated detailed reports on sales and supplier performance, aiding in strategic decision-making.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section id="contact-info">
-        <!-- 中文内容 -->
-        <div id="chinese-content">
-            <h2>联系方式</h2>
-            <ul>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/yichao-liu-usc/">https://www.linkedin.com/in/yichao-liu-usc/</a></li>
-                <li>电话: 213 - 910 - 5548</li>
-                <li>邮箱: <a href="mailto:liuyicha@usc.edu">liuyicha@usc.edu</a></li>
-            </ul>
-        </div>
-        <!-- 英文内容 -->
-        <div id="english-content">
-            <h2>Contact Information</h2>
-            <ul>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/yichao-liu-usc/">https://www.linkedin.com/in/yichao-liu-usc/</a></li>
-                <li>Phone: 213 - 910 - 5548</li>
-                <li>Email: <a href="mailto:liuyicha@usc.edu">liuyicha@usc.edu</a></li>
-            </ul>
-        </div>
-    </section>
+    </div>
     <footer>
-        <!-- 中文内容 -->
-        <div id="chinese-content">
-            <p>版权所有 &copy; 2025 YICHAO LIU</p>
-        </div>
-        <!-- 英文内容 -->
-        <div id="english-content">
-            <p>Copyright &copy; 2025 YICHAO LIU</p>
-        </div>
+        <p>版权所有 &copy;  刘 易 超 | Copyright &copy;  YICHAO LIU</p>
     </footer>
 </body>
 
-</html>
+</html>    
